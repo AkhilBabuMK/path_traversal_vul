@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to FileShare</h1>
+    {% if current_user.is_authenticated %}
+        <p>Hello, {{ current_user.username }}!</p>
+        <p><a href="/upload">Upload a File</a></p>
+        <form action="/download" method="get">
+            <input type="text" name="file" placeholder="Enter file name">
+            <button type="submit">Download</button>
+        </form>
+        <p><a href="/logout">Logout</a></p>
+    {% else %}
+        <p><a href="/register">Register</a> | <a href="/login">Login</a></p>
+    {% endif %}
+</body>
+</html>
